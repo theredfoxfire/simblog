@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm test"
   },
-  "author": "vizzlearn@gmail.com",
+  "author": "vizzlearn@gmail.com <hasan setiawan>",
   "license": "ISC",
   "dependencies": {
     "autobind": "^1.0.3",
