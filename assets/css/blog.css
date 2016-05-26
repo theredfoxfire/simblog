@@ -1,0 +1,56 @@
+.blog {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+}
+
+.article-list {
+  flex: 0 1 200px;
+  padding: 10px;
+  background: #ccc;
+  border-right: 1px solid black;
+  overflow: auto;
+}
+
+.article-search, .article-add {
+  margin-bottom: 10px;
+}
+.article-detail {
+  flex: 1 0;
+  padding: 20px;
+  background: #eee;
+  position: relative;
+  overflow: auto;
+}
+
+.article-list .list-item {
+  padding: 10px;
+  background: white;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.article-list .selected {
+  color: white;
+  background: #2d99ec;
+}
+
+.article-detail .article-title {
+  font-size: 200%;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.article-detail .article-author {
+  font-size: 80%;
+  font-style: italic;
+  margin: 15px 0;
+}
+
+.article-detail .article-content {
+  margin: 15px 0;
+}

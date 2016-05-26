@@ -1,0 +1,29 @@
+{
+  "articles": [
+    {
+      "title": "React: Just the UI",
+      "author": "React Coder",
+      "content": "Lots of people use React as the V in MVC. Since React makes no assumptions about the rest of your technology stack, it's easy to try it out on a small feature in an existing project."
+    },
+    {
+      "title": "Virtual DOM",
+      "author": "Former Angular Coder",
+      "content": "React abstracts away the DOM from you, giving a simpler programming model and better performance. React can also render on the server using Node, and it can power"
+    },
+    {
+      "title": "Data Flow",
+      "author": "Core Developer",
+      "content": "React implements one-way reactive data flow which reduces boilerplate and is easier to reason about than traditional data binding."
+    },
+    {
+      "title": "A Simple Component",
+      "author": "Another Coder",
+      "content": "React components implement a render() method that takes input data and returns what to display. This example uses an XML-like syntax called JSX. Input data that is passed into the component can be accessed by render() via this.props."
+    },
+    {
+      "title": "A Stateful Component",
+      "author": "Another Coder",
+      "content": "In addition to taking input data (accessed via this.props), a component can maintain internal state data (accessed via this.state). When a component's state data changes, the rendered markup will be updated by re-invoking render()."
+    }
+  ]
+}
