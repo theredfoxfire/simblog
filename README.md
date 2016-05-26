@@ -1,7 +1,7 @@
 # simblog
 just show the simple blog code with React.js
 
-clone reponya, run `npm install`
+clone reponya, run `npm install` wait a minute :D biasanya agak lamaan
 
 install `npm install http-server -g` buat ngejalanin servernya
 
