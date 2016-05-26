@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "autobind": "^1.0.3",
+    "class-autobind": "^0.1.2",
     "classnames": "^2.2.5",
     "denodeify": "^1.2.1",
     "react": "^15.1.0",

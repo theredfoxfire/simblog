@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {View, TextInput, Button} from '../ui';
+import autobind from 'class-autobind';
 
 import type Article from './ArticleType';
 
@@ -12,7 +13,7 @@ type Props = {
   articles: Array<Article>;
   selectedIndex: number;
   onArticleSelect: (index: number) => {};
-  onCreate: (isCreate: boolean) => {};
+  onCreate: () => {};
 };
 
 type State = {
@@ -27,7 +28,7 @@ export default class ArticleListView extends Component {
     this.state = {
       searchText: '',
     };
-    this._setSearchText = this._setSearchText.bind(this);
+    autobind(this);
   }
   render() {
     let {articles, onCreate} = this.props;
@@ -50,7 +51,7 @@ export default class ArticleListView extends Component {
     );
   }
 
-  _renderItem(article: Article, index: number): Array<React> {
+  _renderItem(article: Article, index: number): Array<Component> {
     let {selectedIndex} = this.props;
     let className = 'list-item';
     if (index === selectedIndex) {

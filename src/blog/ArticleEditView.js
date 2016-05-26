@@ -3,6 +3,11 @@
 
 import React from 'react';
 import {View, Button, TextInput} from '../ui';
+import autobind from 'class-autobind';
+const ActionType = {
+  ADD_POST: 1,
+  EDIT_POST: 2,
+};
 
 import type Article from './ArticleType';
 
@@ -29,10 +34,7 @@ export default class ArticleEditView extends Component {
       title: article.title,
       content: article.content,
     };
-    this._onSave = this._onSave.bind(this);
-    this._onReset = this._onReset.bind(this);
-    this._onTitleChange = this._onTitleChange.bind(this);
-    this._onContentChange = this._onContentChange.bind(this);
+    autobind(this);
   }
 
   render() {
@@ -81,6 +83,6 @@ export default class ArticleEditView extends Component {
       author: article.author,
       content: this.state.content,
     };
-    this.props.onSave(newArticle);
+    this.props.onSave(newArticle, ActionType.EDIT_POST);
   }
 }

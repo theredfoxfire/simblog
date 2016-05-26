@@ -5,8 +5,14 @@ import {View} from '../ui';
 import ArticleListView from './ArticleListView';
 import ArticleDetailView from './ArticleDetailView';
 import ArticleEditView from './ArticleEditView';
+import AddArticleView from './AddArticleView';
 import Article from './ArticleType';
+import autobind from 'class-autobind';
 
+const ActionType = {
+  ADD_POST: 1,
+  EDIT_POST: 2,
+};
 const {Component} = React;
 type Props = {
   endpoint: string;
@@ -29,11 +35,7 @@ export default class BlogView extends Component {
       selectedIndex: -1,
       isEditing: false,
     };
-
-    this._selectArticle = this._selectArticle.bind(this);
-    this._editArticle = this._editArticle.bind(this);
-    this._cancelEdit = this._cancelEdit.bind(this);
-    this._saveArticle = this._saveArticle.bind(this);
+    autobind(this);
   }
 
   componentWillMount() {
@@ -57,14 +59,16 @@ export default class BlogView extends Component {
           articles={articles}
           selectedIndex={this.state.selectedIndex}
           onArticleSelect={this._selectArticle}
+          onCreate={this._addArticle}
         />
         {this._renderDetailView()}
       </View>
     );
   }
 
-  _selectArticle(index) {
-    if (this.state.isEditing) {
+  _selectArticle(index: number) {
+    let {isEditing, isAdding} = this.state;
+    if (isEditing || isAdding) {
       return;
     } else if (index === this.state.selectedIndex) {
       this.setState({
@@ -83,6 +87,7 @@ export default class BlogView extends Component {
   }
   _addArticle() {
     this.setState({
+      selectedIndex: -1,
       isAdding: true,
     });
   }
@@ -91,26 +96,36 @@ export default class BlogView extends Component {
       isEditing: false,
     });
   }
-  _saveArticle(newArticle) {
-    let {selectedIndex} = this.state;
-    let articles = this.state.articles.map((article, index) => {
-      return (index === selectedIndex) ? newArticle : article;
-    });
-
-    this.setState({articles});
+  _cancelAdd() {
     this.setState({
-      isEditing: false,
+      isAdding: false,
     });
   }
-  _renderDetailView() {
-    let {articles} = this.state;
-    let selectedArticle = articles[this.state.selectedIndex];
-    if (!this.state.isEditing) {
-      return (<ArticleDetailView
-          article={selectedArticle}
-          onEditClick={this._editArticle}
-        />);
+  _saveArticle(newArticle: Article, actionType: number) {
+    let {selectedIndex} = this.state;
+    let articles = [];
+    if (actionType === ActionType.ADD_POST) {
+      articles = this.state.articles;
+      articles.push(newArticle);
+      this.setState({
+        isAdding: false,
+      });
+      this.setState({articles});
     } else {
+      articles = this.state.articles.map((article, index) => {
+        return (index === selectedIndex) ? newArticle : article;
+      });
+      this.setState({
+        isEditing: false,
+      });
+      this.setState({articles});
+    }
+
+  }
+  _renderDetailView(): Array<Component> {
+    let {articles, isEditing, isAdding} = this.state;
+    let selectedArticle = articles[this.state.selectedIndex];
+    if (isEditing) {
       return (
         <ArticleEditView
           article={selectedArticle}
@@ -118,6 +133,18 @@ export default class BlogView extends Component {
           onCancel={this._cancelEdit}
         />
       );
+    } else if (isAdding) {
+      return (
+        <AddArticleView
+          onSave={this._saveArticle}
+          onCancel={this._cancelAdd}
+        />
+      );
+    } else {
+      return (<ArticleDetailView
+          article={selectedArticle}
+          onEditClick={this._editArticle}
+      />);
     }
   }
 }
