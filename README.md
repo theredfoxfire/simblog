@@ -23,4 +23,4 @@ Run `npm run webpack-dev`
 
 Terus Run `npm test` 
 
-Kalau ada masalah let me know via vizzlearn@gmail.com <Hasan Setiawan>
+Kalau ada masalah let me know via vizzlearn@gmail.com (Hasan Setiawan)
