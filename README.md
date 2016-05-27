@@ -9,7 +9,7 @@ Run `webpack`
 
 Install `npm install http-server -g` buat ngejalanin servernya
 
-Jalanin servernya:
+## Jalanin servernya:
 
 Run `http-server -p 8080 (bisa disesuaikan ke port yang kosong)`
 
@@ -17,4 +17,12 @@ Kalau seperti di atas pointing urlnya ke:
 
 `http://localhost:8080/assets/blog.html`
 
+## Run the Test
+
+Run `npm run webpack-dev`
+
+Terus Run `npm test` 
+
 Masih work in progress testing belum saya tulis :D
+
+Kalau ada masalah let me know via vizzlearn@gmail.com <Hasan Setiawan>
