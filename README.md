@@ -5,6 +5,8 @@ Clone reponya, run `npm install` wait a minute :D biasanya agak lamaan
 
 Masuk ke folder app: `cd ~/path-to-folder-app`
 
+Install webpack `npm install -g webpack`
+
 Run `webpack`
 
 Install `npm install http-server -g` buat ngejalanin servernya
