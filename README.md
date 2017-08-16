@@ -1,15 +1,15 @@
 # Simblog
 Just show the simple blog code with React.js
 
-Clone reponya, run `npm install` wait a minute :D biasanya agak lamaan
+Clone reponya, Masuk ke folder app: `cd ~/path-to-folder-app`
 
-Masuk ke folder app: `cd ~/path-to-folder-app`
+run `npm install` wait a minute :D biasanya agak lamaan
 
 Install webpack `npm install -g webpack`
 
 Run `webpack`
 
-Install `npm install http-server -g` buat ngejalanin servernya
+Install `npm install http-server -g` untuk server managernya
 
 ## Jalanin servernya:
 
