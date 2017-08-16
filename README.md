@@ -23,6 +23,8 @@ Kalau seperti di atas pointing urlnya ke:
 
 Run `npm run webpack-dev`
 
+Buka tab baru di terminal (namun masih dalam directory yang sama)
+
 Terus Run `npm test` 
 
 Kalau ada masalah let me know via vizzlearn@gmail.com (Hasan Setiawan)
